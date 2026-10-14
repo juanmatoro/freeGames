@@ -8,7 +8,7 @@
     android:background="@color/canvas_base"
     tools:context=".activities.MainActivity">
 
-    <!-- Custom Top Header Bar matching screen.png -->
+    <!-- Top Header Bar -->
     <LinearLayout
         android:id="@+id/topHeader"
         android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                 android:layout_gravity="center"
                 android:src="@drawable/ic_notification"
                 app:tint="@color/text_high_emphasis"
-                android:contentDescription="Notifications" />
+                android:contentDescription="@string/app_name" />
 
             <View
                 android:layout_width="8dp"
@@ -75,261 +75,257 @@
             android:padding="6dp"
             android:src="@drawable/ic_profile"
             app:tint="@color/text_high_emphasis"
-            android:contentDescription="Profile" />
+            android:contentDescription="@string/app_name" />
 
     </LinearLayout>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="16dp"
         app:layout_constraintTop_toBottomOf="@+id/topHeader"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView">
 
+        <!-- Title & Platform Selector -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-            <!-- Title & Platform Selector -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Explorar"
+                android:textColor="@color/text_high_emphasis"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <!-- Platform Filter Pills -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_platform_selector"
+                android:orientation="horizontal"
+                android:padding="3dp">
+
+                <TextView
+                    android:id="@+id/pillTodo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_pill_inactive"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="TODO"
+                    android:textColor="@color/text_muted"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/pillPc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_pill_inactive"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="PC"
+                    android:textColor="@color/text_muted"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/pillWeb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_pill_inactive"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="WEB"
+                    android:textColor="@color/text_muted"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Search Bar -->
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_search_field"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:drawablePadding="12dp"
+            android:hint="Buscar por título de juego..."
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/text_high_emphasis"
+            android:textColorHint="@color/text_muted"
+            android:textSize="14sp" />
+
+        <!-- Stats Banner Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/surface_card"
+            app:cardCornerRadius="16dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/card_stroke">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:padding="16dp"
                 android:gravity="center_vertical">
 
-                <TextView
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/ic_menu_agenda"
+                    app:tint="@color/electric_cyan"
+                    android:contentDescription="@string/app_name" />
+
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Explorar"
-                    android:textColor="@color/text_high_emphasis"
-                    android:textSize="26sp"
-                    android:textStyle="bold" />
-
-                <!-- Platform Filter Pills -->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_platform_selector"
-                    android:orientation="horizontal"
-                    android:padding="3dp">
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/pillTodo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_pill_active"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="4dp"
-                        android:text="TODO"
-                        android:textColor="@color/canvas_base"
-                        android:textSize="12sp"
+                        android:text="420+ Juegos"
+                        android:textColor="@color/text_high_emphasis"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/pillPc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="4dp"
-                        android:text="PC"
+                        android:text="Catálogo verificado FreeToGame"
                         android:textColor="@color/text_muted"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/pillWeb"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="4dp"
-                        android:text="WEB"
-                        android:textColor="@color/text_muted"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:textSize="12sp" />
 
                 </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_badge_free"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="100% GRATIS"
+                    android:textColor="@color/canvas_base"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
-            <!-- Search Bar -->
-            <EditText
-                android:id="@+id/etSearch"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bg_search_field"
-                android:drawableStart="@android:drawable/ic_menu_search"
-                android:drawablePadding="12dp"
-                android:hint="Buscar por título de juego..."
-                android:imeOptions="actionSearch"
-                android:inputType="text"
-                android:paddingHorizontal="16dp"
-                android:textColor="@color/text_high_emphasis"
-                android:textColorHint="@color/text_muted"
-                android:textSize="14sp" />
+        </com.google.android.material.card.MaterialCardView>
 
-            <!-- Stats Banner Card -->
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:cardBackgroundColor="@color/surface_card"
-                app:cardCornerRadius="16dp"
-                app:strokeWidth="1dp"
-                app:strokeColor="@color/card_stroke">
+        <!-- Genres Section Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Géneros Principales"
+            android:textColor="@color/text_high_emphasis"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:gravity="center_vertical">
+        <!-- Horizontal Genre Chips Scroll -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:scrollbars="none">
 
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@android:drawable/ic_menu_agenda"
-                        app:tint="@color/electric_cyan"
-                        android:contentDescription="@string/app_name" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="12dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="420+ Juegos"
-                            android:textColor="@color/text_high_emphasis"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Catálogo verificado FreeToGame"
-                            android:textColor="@color/text_muted"
-                            android:textSize="12sp" />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_badge_free"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="4dp"
-                        android:text="100% GRATIS"
-                        android:textColor="@color/canvas_base"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- Genres Section Title -->
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Géneros Principales"
-                android:textColor="@color/text_high_emphasis"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
 
-            <!-- Horizontal Genre Chips Scroll -->
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:scrollbars="none">
-
-                <LinearLayout
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipAll"
+                    style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginEnd="8dp"
+                    android:checked="false"
+                    android:text="Todos"
+                    app:chipBackgroundColor="@color/surface_card"
+                    app:chipStrokeColor="@color/card_stroke" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipAll"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:checked="true"
-                        android:text="Todos"
-                        app:chipBackgroundColor="@color/surface_card"
-                        app:chipStrokeColor="@color/card_stroke" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipMmorpg"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="MMORPG"
+                    app:chipBackgroundColor="@color/surface_card"
+                    app:chipStrokeColor="@color/card_stroke" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipMmorpg"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="MMORPG"
-                        app:chipBackgroundColor="@color/surface_card"
-                        app:chipStrokeColor="@color/card_stroke" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipShooter"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="Shooter"
+                    app:chipBackgroundColor="@color/surface_card"
+                    app:chipStrokeColor="@color/card_stroke" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipShooter"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="Shooter"
-                        app:chipBackgroundColor="@color/surface_card"
-                        app:chipStrokeColor="@color/card_stroke" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipMoba"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="MOBA"
+                    app:chipBackgroundColor="@color/surface_card"
+                    app:chipStrokeColor="@color/card_stroke" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipMoba"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="MOBA"
-                        app:chipBackgroundColor="@color/surface_card"
-                        app:chipStrokeColor="@color/card_stroke" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipStrategy"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strategy"
+                    app:chipBackgroundColor="@color/surface_card"
+                    app:chipStrokeColor="@color/card_stroke" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipStrategy"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Strategy"
-                        app:chipBackgroundColor="@color/surface_card"
-                        app:chipStrokeColor="@color/card_stroke" />
+            </LinearLayout>
 
-                </LinearLayout>
+        </HorizontalScrollView>
 
-            </HorizontalScrollView>
+        <!-- Feed Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Populares Gratis"
+            android:textColor="@color/text_high_emphasis"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-            <!-- Feed Header -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Populares Gratis"
-                android:textColor="@color/text_high_emphasis"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+        <!-- RecyclerView for Games with vertical scroll & infinite scroll working -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp" />
 
-            <!-- RecyclerView for Games -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:nestedScrollingEnabled="false" />
-
-        </LinearLayout>
-
-    </ScrollView>
+    </LinearLayout>
 
     <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
