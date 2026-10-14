@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_explore"
+        android:icon="@drawable/ic_explore"
+        android:title="Explorar" />
+    <item
+        android:id="@+id/nav_categories"
+        android:icon="@drawable/ic_categories"
+        android:title="Categorías" />
+    <item
+        android:id="@+id/nav_giveaways"
+        android:icon="@drawable/ic_giveaways"
+        android:title="Regalos" />
+    <item
+        android:id="@+id/nav_saved"
+        android:icon="@drawable/ic_saved"
+        android:title="Guardados" />
+</menu>

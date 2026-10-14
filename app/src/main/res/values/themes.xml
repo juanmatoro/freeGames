@@ -1,8 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Base application theme (Browser_DESIGN.md Cyberpunk Minimal) -->
     <style name="Base.Theme.FreeGames" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/electric_cyan</item>
+        <item name="colorSecondary">@color/surface_card</item>
+        <item name="android:windowBackground">@color/canvas_base</item>
+        <item name="colorSurface">@color/surface_card</item>
+        <item name="colorOnSurface">@color/text_high_emphasis</item>
     </style>
 
     <style name="Theme.FreeGames" parent="Base.Theme.FreeGames" />

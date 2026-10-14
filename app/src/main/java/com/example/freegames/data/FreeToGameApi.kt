@@ -8,11 +8,10 @@ import retrofit2.http.Query
 interface FreeToGameApi {
 
     @GET("games")
-    suspend fun getGamesList(): List<Game>
+    suspend fun getGamesList(@Query("category") category: String? = null): List<Game>
 
-    @Suppress("unused")
     @GET("game")
-    suspend fun getGameById(@Query("id") id: Int): Game
+    suspend fun getGameById(@Query("id") id: Int): GameDetail
 
     companion object {
         fun getInstance(): FreeToGameApi {

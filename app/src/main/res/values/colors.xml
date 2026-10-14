@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Browser_DESIGN.md Color Tokens -->
+    <color name="canvas_base">#0F131C</color>
+    <color name="surface_card">#181C24</color>
+    <color name="electric_cyan">#00E5FF</color>
+    <color name="text_high_emphasis">#F8FAFC</color>
+    <color name="text_muted">#94A3B8</color>
+    <color name="card_stroke">#334155</color>
 </resources>
