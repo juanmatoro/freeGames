@@ -6,16 +6,20 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.freegames.R
+import com.example.freegames.adapters.GameAdapter
 import com.example.freegames.data.FreeToGameApi
 import com.example.freegames.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var gameAdapter: GameAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,14 +34,29 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        binding.recyclerView
+        setupRecyclerView()
+        fetchGames()
+    }
 
+    private fun setupRecyclerView() {
+        gameAdapter = GameAdapter(emptyList())
+        binding.recyclerView.apply {
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            adapter = gameAdapter
+        }
+    }
 
+    private fun fetchGames() {
         val api = FreeToGameApi.getInstance()
 
         CoroutineScope(Dispatchers.IO).launch {
-            api.getGamesList().forEach {
-                Log.i("API", it.toString())
+            try {
+                val gamesList = api.getGamesList()
+                withContext(Dispatchers.Main) {
+                    gameAdapter.updateData(gamesList)
+                }
+            } catch (e: Exception) {
+                Log.e("MainActivity", "Error fetching games", e)
             }
         }
     }

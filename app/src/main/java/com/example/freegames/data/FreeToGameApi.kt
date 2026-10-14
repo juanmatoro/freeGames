@@ -10,6 +10,7 @@ interface FreeToGameApi {
     @GET("games")
     suspend fun getGamesList(): List<Game>
 
+    @Suppress("unused")
     @GET("game")
     suspend fun getGameById(@Query("id") id: Int): Game
 
