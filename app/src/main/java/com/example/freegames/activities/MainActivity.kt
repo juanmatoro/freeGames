@@ -27,8 +27,13 @@ import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
 
+    // Almacena la instancia de enlace generada por ViewBinding para 'activity_main.xml'.
     private lateinit var binding: ActivityMainBinding
+
+    // Almacena la instancia del adaptador ('GameAdapter').
     private lateinit var gameAdapter: GameAdapter
+
+    // Almacena la lista completa de juegos descargados para permitir filtrado local en vivo mediante el buscador.
     private var allGames: List<Game> = emptyList()
 
     private var selectedPlatform: String? = null
@@ -37,6 +42,7 @@ class MainActivity : AppCompatActivity() {
     // Variables para el scroll infinito (paginación por lotes de 20 en 20)
     private var displayedGamesCount = 20
 
+    // Punto de entrada principal de la Actividad.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -61,10 +67,14 @@ class MainActivity : AppCompatActivity() {
         fetchGames(null, null)
     }
 
+    // Configura el RecyclerView y el adaptador (GameAdapter).
     private fun setupRecyclerView() {
         gameAdapter = GameAdapter(emptyList()) { game ->
+            // ¿Qué hacemos aquí? Usamos la constante estática (GameDetailActivity.EXTRA_GAME_ID)
+            // en lugar de escribir una cadena de texto ("EXTRA_GAME_ID") manualmente.
+            // ¿Por qué? Evita errores de tipeo (typos) y centraliza la clave del Intent en la actividad receptora.
             val intent = Intent(this, GameDetailActivity::class.java).apply {
-                putExtra("EXTRA_GAME_ID", game.id)
+                putExtra(GameDetailActivity.EXTRA_GAME_ID, game.id)
             }
             startActivity(intent)
         }
