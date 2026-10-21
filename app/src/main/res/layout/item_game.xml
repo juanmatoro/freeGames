@@ -16,6 +16,10 @@
         android:layout_height="wrap_content"
         android:padding="12dp">
 
+        <!--
+          - ¿Qué hacemos?: Anclamos la miniatura a la izquierda y la centramos verticalmente en la tarjeta.
+          - ¿Por qué?: Posiciona de forma fija la portada del juego a un lado, manteniendo un diseño limpio y predecible.
+        -->
         <ImageView
             android:id="@+id/ivThumbnail"
             android:layout_width="120dp"
@@ -26,6 +30,10 @@
             app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@string/app_name" />
 
+        <!--
+          - ¿Qué hacemos?: Anclamos el título a la derecha de la miniatura y contra el borde superior.
+          - ¿Por qué?: Asegura que el título comience justo al lado de la imagen y ocupe el ancho restante.
+        -->
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="0dp"
@@ -38,6 +46,10 @@
             app:layout_constraintStart_toEndOf="@+id/ivThumbnail"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!--
+          - ¿Qué hacemos?: Anclamos la descripción debajo del título, a la derecha de la miniatura y contra el borde inferior.
+          - ¿Por qué?: Distribuye el texto en el espacio restante de la tarjeta sin solaparse con el título ni salirse de los límites.
+        -->
         <TextView
             android:id="@+id/tvDescription"
             android:layout_width="0dp"

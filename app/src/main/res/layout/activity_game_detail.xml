@@ -8,6 +8,10 @@
     android:background="@color/canvas_base"
     tools:context=".activities.GameDetailActivity">
 
+    <!--
+      - ¿Qué hacemos?: Anclamos la Toolbar superior al borde superior.
+      - ¿Por qué?: Mantiene fijo el título y el botón de retroceso arriba en la pantalla de detalle.
+    -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -18,6 +22,10 @@
         app:navigationIconTint="@color/text_high_emphasis"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--
+      - ¿Qué hacemos?: Limitamos el ScrollView entre la parte inferior de la Toolbar y la parte superior del botón de descarga.
+      - ¿Por qué?: Permite que todo el contenido largo (sinopsis, requisitos, ficha técnica) scrollee libremente sin solaparse con los elementos fijos superior e inferior.
+    -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -150,7 +158,10 @@
 
     </ScrollView>
 
-    <!-- Sticky Bottom CTA -->
+    <!--
+      - ¿Qué hacemos?: Anclamos el botón flotante de descarga al borde inferior de la pantalla.
+      - ¿Por qué?: Actúa como un *Sticky CTA* (llamada a la acción persistente) visible en todo momento para que el usuario pueda descargar el juego sin tener que hacer scroll hasta el final.
+    -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnGetGame"
         android:layout_width="match_parent"

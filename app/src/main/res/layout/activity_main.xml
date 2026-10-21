@@ -8,7 +8,10 @@
     android:background="@color/canvas_base"
     tools:context=".activities.MainActivity">
 
-    <!-- Top Header Bar -->
+    <!--
+      - ¿Qué hacemos?: Anclamos el encabezado superior al borde superior de la pantalla.
+      - ¿Por qué?: Garantiza que la cabecera permanezca fija arriba sin importar el contenido inferior.
+    -->
     <LinearLayout
         android:id="@+id/topHeader"
         android:layout_width="match_parent"
@@ -327,7 +330,10 @@
 
     </LinearLayout>
 
-    <!-- Bottom Navigation -->
+    <!--
+      - ¿Qué hacemos?: Anclamos la barra de navegación inferior al borde inferior de la pantalla.
+      - ¿Por qué?: Mantiene el menú fijo en la zona de fácil alcance táctil (*thumb-friendly zone*).
+    -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
